@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
 {
     #region Editor Variables
     [SerializeField]
-    private int m_MaxHealth;
+    private int m_MaxHealth = 3;
 
     [SerializeField]
     [Tooltip("How quickly the enemy will move around.")]
@@ -16,6 +16,15 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField]
     private float m_Damage;
+
+    [SerializeField]
+    private GameObject m_HealthPill;
+
+    [SerializeField]
+    private float m_HealthPillDropRate;
+
+    [SerializeField]
+    private int m_Score;
     #endregion
 
     #region Private Variables
@@ -33,6 +42,7 @@ public class EnemyController : MonoBehaviour
     #region Initialization
     private void Awake()
     {
+        p_CurHealth = m_MaxHealth;
         cc_Rb = GetComponent<Rigidbody>();
     }
 
@@ -63,7 +73,16 @@ public class EnemyController : MonoBehaviour
     #region Health Methods
     public void DecreaseHealth(float amount)
     {
-        Destroy(gameObject);
+        p_CurHealth -= amount;
+        if (p_CurHealth <= 0)
+        {
+            if (Random.value < m_HealthPillDropRate)
+            {
+                Instantiate(m_HealthPill, transform.position, Quaternion.identity);
+            }
+            ScoreManager.singleton.IncreaseScore(m_Score);
+            Destroy(gameObject);
+        }
     }
     #endregion
 }

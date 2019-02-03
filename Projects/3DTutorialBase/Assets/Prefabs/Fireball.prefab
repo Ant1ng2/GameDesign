@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2236446488583338521}
   - component: {fileID: 2189258968451886780}
   - component: {fileID: 7716282267347742623}
+  - component: {fileID: 4967323665037605993}
   m_Layer: 12
-  m_Name: Fireball 1
+  m_Name: Fireball
   m_TagString: AttackAbility
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4747,3 +4748,21 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2583835
   m_Center: {x: 0.022958517, y: -0.09171271, z: -0.015235968}
+--- !u!114 &4967323665037605993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352507662906087214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 467db24c0167f024696d6b06b83939ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Info:
+    m_Power: 1
+    m_Range: 0
+  m_Speed: 5
+  m_DeathExplosion: {fileID: 198672909764301616, guid: f232151bd277a104898873b658162a85,
+    type: 3}
